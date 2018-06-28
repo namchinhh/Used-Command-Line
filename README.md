@@ -52,3 +52,7 @@ Sang 7.1
 sudo a2enmod php7.1 && sudo a2dismod php7.0 && sudo update-alternatives --set php /usr/bin/php7.1 && sudo update-alternatives --set php-config /usr/bin/php-config7.1 && sudo update-alternatives --set phpize /usr/bin/phpize7.1  && sudo service apache2 restart
 
 Anh em nho cai lai xdebug cho 7.1
+
+//generate ssh key
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
