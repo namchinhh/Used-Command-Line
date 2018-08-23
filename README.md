@@ -60,3 +60,9 @@ Anh em nho cai lai xdebug cho 7.1
 //generate ssh key
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
+
+//create custom debug.log
+$writer = new \Zend\Log\Writer\Stream(BP . '/var/log/templog.log');
+$logger = new \Zend\Log\Logger();
+$logger->addWriter($writer);
+$logger->info("debug in here");
