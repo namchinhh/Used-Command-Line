@@ -66,3 +66,12 @@ $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/templog.log');
 $logger = new \Zend\Log\Logger();
 $logger->addWriter($writer);
 $logger->info("debug in here");
+
+/////DOCKER
+docker exec -it kathmandu_php-fpm_1 bash
+
+//check phpcs
+docker exec -itu www kathmandu_php-fpm_1 bash -c "cd /tmp/magento-coding-standard; ./vendor/bin/phpcs /var/www/current/src/app/code/Kathmandu/SummitClub --standard=MEQP2 --extensions=php,phtml --exclude=Generic.PHP.DisallowShortOpenTag"
+
+//fix phpcs
+docker exec -it kathmandu_php-fpm_1 bash -c "cd /var/www/current/src; ./vendor/bin/php-cs-fixer fix --config=.php_cs.kathmandu -v --using-cache=no"
