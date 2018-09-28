@@ -70,6 +70,9 @@ $logger->info("debug in here");
 /////DOCKER
 docker exec -it kathmandu_php-fpm_1 bash
 
+// down tool 
+docker exec -itu www kathmandu_php-fpm_1 bash -c "cd /tmp/ && composer create-project --repository=https://repo.magento.com magento/marketplace-eqp magento-coding-standard"
+
 //check phpcs
 docker exec -itu www kathmandu_php-fpm_1 bash -c "cd /tmp/magento-coding-standard; ./vendor/bin/phpcs /var/www/current/src/app/code/Kathmandu/SummitClub --standard=MEQP2 --extensions=php,phtml --exclude=Generic.PHP.DisallowShortOpenTag"
 
