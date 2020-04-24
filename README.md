@@ -79,6 +79,6 @@ docker exec -itu www kathmandu_php-fpm_1 bash -c "cd /tmp/magento-coding-standar
 //fix phpcs
 docker exec -it kathmandu_php-fpm_1 bash -c "cd /var/www/current/src; ./vendor/bin/php-cs-fixer fix --config=.php_cs.kathmandu -v --using-cache=no"
 
-ssh -i "uat-goodbrand.pem" ubuntu@devgb.goodbrand.com.au
+ssh -i uat-goodbrand_\(3\).pem ubuntu@devgb.goodbrand.com.au
 
 rm -rf cache/* amasty_fpc/* locks/*                             
